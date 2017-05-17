@@ -1,6 +1,5 @@
 <?php
 require_once 'database.php';
-require_once 'header.php';
 require_once 'class.php';
 ?>
 
@@ -10,7 +9,6 @@ require_once 'class.php';
 </head>
 
 <body>
-    <a href="index.php">Home</a>
     <br/><br/>
 <?php
 
@@ -23,10 +21,10 @@ require_once 'class.php';
     <table width='80%' border=0>
 
         <tr bgcolor='#CCCCCC'>
-            <td>Name</td>
-            <td>Age</td>
-            <td>Email</td>
-            <td>Update</td>
+            <td>Numero</td>
+            <td>Année</td>
+            <td>Région</td>
+            <td>Couverture</td>
         </tr>
 
     <?php foreach ($result as $key => $res) {
@@ -40,6 +38,8 @@ require_once 'class.php';
      }
      ?>
    </table>
+
+   <h2>Ajouter un Magazine</h2>
 
     <form action="add.php" method="post" name="form1">
         <table width="25%" border="0">
@@ -64,5 +64,3 @@ require_once 'class.php';
     </form>
 </body>
 </html>
-
-<?php require_once 'footer.php';

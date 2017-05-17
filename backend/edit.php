@@ -1,6 +1,6 @@
 <?php
 // including the database connection file
-include_once("classes/Crud.php");
+include_once("class.php");
 
 $crud = new Crud();
 
@@ -8,12 +8,13 @@ $crud = new Crud();
 $id = $crud->escape_string($_GET['id']);
 
 //selecting data associated with this particular id
-$result = $crud->getData("SELECT * FROM users WHERE id=$id");
+$result = $crud->getData("SELECT * FROM archi WHERE id=$id");
 
 foreach ($result as $res) {
-    $name = $res['name'];
-    $age = $res['age'];
-    $email = $res['email'];
+    $num = $res['num'];
+    $annee = $res['annee'];
+    $region = $res['region'];
+    $image = $res['image'];
 }
 ?>
 <html>
@@ -28,16 +29,20 @@ foreach ($result as $res) {
     <form name="form1" method="post" action="editaction.php">
         <table border="0">
             <tr>
-                <td>Name</td>
-                <td><input type="text" name="name" value="<?php echo $name;?>"></td>
+                <td>Numero</td>
+                <td><input type="text" name="num" value="<?php echo $num;?>"></td>
             </tr>
             <tr>
-                <td>Age</td>
-                <td><input type="text" name="age" value="<?php echo $age;?>"></td>
+                <td>Année</td>
+                <td><input type="text" name="annee" value="<?php echo $annee;?>"></td>
             </tr>
             <tr>
-                <td>Email</td>
-                <td><input type="text" name="email" value="<?php echo $email;?>"></td>
+                <td>Region</td>
+                <td><input type="text" name="region" value="<?php echo $region;?>"></td>
+            </tr>
+            <tr>
+                <td>Couverture</td>
+                <td><input type="text" name="image" value="<?php echo $image;?>"></td>
             </tr>
             <tr>
                 <td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
